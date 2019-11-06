@@ -11,17 +11,17 @@ use App\Command\Contracts\EletronicDevice;
 /**
  * 
  */
-class Television implements EletronicDevice
+class Radio implements EletronicDevice
 {
     private $volume = 0;
     public function on()
     {
-        echo "TV is ON".PHP_EOL;
+        echo "Radio is ON".PHP_EOL;
     }
 
     public function off()
     {
-        echo "TV is OFF".PHP_EOL;
+        echo "Radio is OFF".PHP_EOL;
     }
 
     public function volumeUp()
