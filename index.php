@@ -25,51 +25,60 @@ require __DIR__ . '/vendor/autoload.php';
  * Command test
  */
 
-use App\Command\Commands\TurnTVOff;
-use App\Command\Commands\TurnTVOn;
-use App\Command\Commands\TurnTVVolumeDown;
-use App\Command\Commands\TurnTVVolumeUp;
-use App\Command\DeviceButton;
-use App\Command\Radio;
-use App\Command\Television;
-use App\Command\TurnItAllOff;
-use App\Command\TVRemote;
+// use App\Command\Commands\TurnTVOff;
+// use App\Command\Commands\TurnTVOn;
+// use App\Command\Commands\TurnTVVolumeDown;
+// use App\Command\Commands\TurnTVVolumeUp;
+// use App\Command\DeviceButton;
+// use App\Command\Radio;
+// use App\Command\Television;
+// use App\Command\TurnItAllOff;
+// use App\Command\TVRemote;
 
-$newDevice = (new TVRemote())->getDevice();
+// $newDevice = (new TVRemote())->getDevice();
 
-$onCommand = new TurnTVOff($newDevice);
-$onPressed = new DeviceButton($onCommand);
-$onPressed->press();
+// $onCommand = new TurnTVOff($newDevice);
+// $onPressed = new DeviceButton($onCommand);
+// $onPressed->press();
 
-$onCommand = new TurnTVOn($newDevice);
-$onPressed = new DeviceButton($onCommand);
-$onPressed->press();
-
-
-$onCommand = new TurnTVVolumeDown($newDevice);
-$onPressed = new DeviceButton($onCommand);
-$onPressed->press();
-
-$onCommand = new TurnTVVolumeUp($newDevice);
-$onPressed = new DeviceButton($onCommand);
-$onPressed->press();
-$onPressed->press();
-$onPressed->press();
-$onPressed->press();
+// $onCommand = new TurnTVOn($newDevice);
+// $onPressed = new DeviceButton($onCommand);
+// $onPressed->press();
 
 
-$onCommand = new TurnTVVolumeDown($newDevice);
-$onPressed = new DeviceButton($onCommand);
-$onPressed->press();
-$onPressed->press();
+// $onCommand = new TurnTVVolumeDown($newDevice);
+// $onPressed = new DeviceButton($onCommand);
+// $onPressed->press();
+
+// $onCommand = new TurnTVVolumeUp($newDevice);
+// $onPressed = new DeviceButton($onCommand);
+// $onPressed->press();
+// $onPressed->press();
+// $onPressed->press();
+// $onPressed->press();
 
 
-$radio = new Radio();
-$tv    = new Television();
-$devices = [$radio,$tv];
-
-$turnItAllOff = new TurnItAllOff($devices);
-$turnThemOff = new DeviceButton($turnItAllOff);
-$turnThemOff->press();
+// $onCommand = new TurnTVVolumeDown($newDevice);
+// $onPressed = new DeviceButton($onCommand);
+// $onPressed->press();
+// $onPressed->press();
 
 
+// $radio = new Radio();
+// $tv    = new Television();
+// $devices = [$radio,$tv];
+
+// $turnItAllOff = new TurnItAllOff($devices);
+// $turnThemOff = new DeviceButton($turnItAllOff);
+// $turnThemOff->press();
+
+
+/**
+ * Decorator test
+ */
+use App\Decorator\Mozzarella;
+use App\Decorator\PlainPizza;
+use App\Decorator\TomatoSauce;
+ $pizza = new TomatoSauce(new Mozzarella(new PlainPizza));
+ echo $pizza->getDescription();
+ echo $pizza->getCost();
