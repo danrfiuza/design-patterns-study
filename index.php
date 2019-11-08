@@ -1,4 +1,5 @@
 <?php
+
 require __DIR__ . '/vendor/autoload.php';
 
 
@@ -76,9 +77,31 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * Decorator test
  */
-use App\Decorator\Mozzarella;
-use App\Decorator\PlainPizza;
-use App\Decorator\TomatoSauce;
- $pizza = new TomatoSauce(new Mozzarella(new PlainPizza));
- echo $pizza->getDescription();
- echo $pizza->getCost();
+// use App\Decorator\Mozzarella;
+// use App\Decorator\PlainPizza;
+// use App\Decorator\TomatoSauce;
+//  $pizza = new TomatoSauce(new Mozzarella(new PlainPizza));
+//  echo $pizza->getDescription();
+//  echo $pizza->getCost();
+
+/**
+ * Chain of Responsability test
+ */
+use App\ChainOfResponsability\AddNumbers;
+use App\ChainOfResponsability\DivideNumbers;
+use App\ChainOfResponsability\MultiplyNumbers;
+use App\ChainOfResponsability\Numbers;
+use App\ChainOfResponsability\SubtractNumbers;
+
+$chainCalc1 = new AddNumbers();
+$chainCalc2 = new SubtractNumbers();
+$chainCalc3 = new MultiplyNumbers();
+$chainCalc4 = new DivideNumbers();
+
+$chainCalc1->setNextChain($chainCalc2);
+$chainCalc2->setNextChain($chainCalc3);
+$chainCalc3->setNextChain($chainCalc4);
+
+$request = new Numbers(5,10,'sub');
+
+$chainCalc1->calculate($request);
